@@ -1,11 +1,11 @@
 import * as React from "react";
-import { DictionaryList } from "@features";
+import { AddWordForm } from "@features";
 import { DefaultTemplate } from "@ui";
 import { navigationPublic, navigationPrivate } from "@lib";
 
 import { Title } from "@ui";
 
-export const DictionaryPage: React.FC<{ isAuth: boolean }> = ({
+export const AddWordPage: React.FC<{ isAuth: boolean }> = ({
   isAuth,
 }: {
   isAuth: boolean;
@@ -14,9 +14,7 @@ export const DictionaryPage: React.FC<{ isAuth: boolean }> = ({
     navigation={isAuth ? navigationPrivate : navigationPublic}
     isAuth={isAuth}
   >
-    <div className="p-6">
-      <Title>My list</Title>
-    </div>
-    <DictionaryList />
+    <Title>Add new word</Title>
+    <AddWordForm />
   </DefaultTemplate>
 );

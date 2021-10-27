@@ -1,3 +1,4 @@
 export { MainPage } from "./main";
-export { LoginPage } from "./login";
+export { LoginPage, LogoutPage } from "./auth";
 export { DictionaryPage } from "./dictionary";
+export { AddWordPage } from "./add-word";

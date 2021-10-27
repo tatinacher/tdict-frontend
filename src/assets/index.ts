@@ -1,3 +1,4 @@
 import profile from "./icons/profile.png";
+import loader from "./icons/loader.png";
 
-export { profile };
+export { loader, profile };
