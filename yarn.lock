@@ -1258,6 +1258,11 @@
   resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@effector/reflect@^7.0.1":
+  version "7.0.1"
+  resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/@effector/reflect/-/reflect-7.0.1.tgz#0bc04672ca1581f6e2dc9df2a6effd8e89435a4a"
+  integrity sha512-tBxtNJnkuArwjaT8HML8ldIumt2NzhO/sR+vPo/jJ6NhEj2wnTfa9xL0qgrIlO5hNxFvmd2d6zqCp4XBT3K+fQ==
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
@@ -4884,6 +4889,16 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+effector-react@^22.0.4:
+  version "22.0.4"
+  resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/effector-react/-/effector-react-22.0.4.tgz#4dcefdbf1167a0ad9a23fbabeec03a66a0f746de"
+  integrity sha512-4bWdcUXZlET5uKF/+9HNeB+s7tAPrD6V7RWbTJXeDCVSwF6gXgDQMjmla7DtHsbpZxB6hSsH98JfqFq7yXbXdw==
+
+effector@^22.1.2:
+  version "22.1.2"
+  resolved "https://nexus-dev.pcbltools.ru/repository/npm-group/effector/-/effector-22.1.2.tgz#5edf2aea4d6b5ae932a2a9c75312804c50e3fe55"
+  integrity sha512-myJlmwZbaoNV5YYaRmM4QhAQeUqpbnmmUXZkACzuhV/2z49qCByC4DT62hghHpGz6Knr/sbB4sAAZ8VJCUYy2g==
 
 ejs@^2.6.1:
   version "2.7.4"

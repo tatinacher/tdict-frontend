@@ -6,7 +6,13 @@
       "@ui": ["./ui"],
       "@routes": ["./pages/routes.ts"],
       "@features/*": ["./features/*"],
-      "@features": ["./features"]
+      "@features": ["./features"],
+      "@assets/*": ["./assets/*"],
+      "@assets": ["./assets"],
+      "@lib/*": ["./lib/*"],
+      "@lib": ["./lib"],
+      "@api/*": ["./api/*"],
+      "@api": ["./api"]
     }
   }
 }

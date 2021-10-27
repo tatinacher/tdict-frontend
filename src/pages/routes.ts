@@ -8,6 +8,12 @@ export const routes = [
     exact: true,
   },
   {
+    component: pages.DictionaryPage,
+    path: "/dictionary",
+    title: "Dictionary",
+    exact: true,
+  },
+  {
     component: pages.MainPage,
     path: "/",
     exact: true,
