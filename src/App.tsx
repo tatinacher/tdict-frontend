@@ -1,10 +1,15 @@
 import React from "react";
-import { MainPage } from "./pages";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { routes } from "@routes";
 
 export const App = () => {
   return (
-    <div className="App">
-      <MainPage />
-    </div>
+    <Router>
+      <Switch>
+        {routes.map((route) => (
+          <Route key={route.path} {...route} />
+        ))}
+      </Switch>
+    </Router>
   );
 };

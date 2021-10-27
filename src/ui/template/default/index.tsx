@@ -1,8 +1,12 @@
+import { Header } from "@ui/organisms";
 import * as React from "react";
 
-export const DefaultTemplate: React.FC = ({ children }) => (
+export const DefaultTemplate: React.FC<{ navigation: any }> = ({
+  navigation,
+  children,
+}) => (
   <>
-    <nav className="bg-green-500 h-16 shadow-md"></nav>
-    <div>{children}</div>
+    <Header navigation={navigation} />
+    <div className="p-12 h-screen">{children}</div>
   </>
 );

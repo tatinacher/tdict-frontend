@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@ui/*": ["./ui/*"],
+      "@ui": ["./ui"],
+      "@routes": ["./pages/routes.ts"],
+      "@features/*": ["./features/*"],
+      "@features": ["./features"]
+    }
+  }
+}
