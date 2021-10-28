@@ -17,13 +17,19 @@ export const routes = [
   },
   {
     component: pages.AddWordPage,
-    path: "/add-word",
+    path: "/user/add-word",
     exact: true,
     title: "Add word",
   },
   {
     component: pages.LogoutPage,
     path: "/logout",
+    exact: true,
+    title: "Logout",
+  },
+  {
+    component: pages.WordsPage,
+    path: "/user/words",
     exact: true,
     title: "Logout",
   },

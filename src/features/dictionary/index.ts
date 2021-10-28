@@ -1,2 +1,2 @@
 export { TranslationCard } from "./card";
-export { DictionaryList } from "./list";
+// export { DictionaryList } from "./list";

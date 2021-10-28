@@ -1,15 +1,10 @@
-export type TranslationsType = {
-  id: number;
-  word: string;
-  language: string;
-};
-
 export type WordType = {
   id: number;
-  word: string;
-  language: string;
-  description: string;
-  translations: TranslationsType[];
+  word_from: string;
+  word_to: string;
+  language_from: string;
+  language_to: string;
+  description?: string;
 };
 
 export type DictionaryType = {

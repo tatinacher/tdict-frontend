@@ -15,7 +15,7 @@ export const DictionaryListBlock: React.FC<DictionaryListProps> = ({
   pending,
 }) => (
   <div className="flex flex-wrap">
-    {pending ? (
+    {/* {pending ? (
       <Loader />
     ) : (
       list.map(({ word, id, description, translations }) => (
@@ -28,7 +28,7 @@ export const DictionaryListBlock: React.FC<DictionaryListProps> = ({
           />
         </div>
       ))
-    )}
+    )} */}
   </div>
 );
 

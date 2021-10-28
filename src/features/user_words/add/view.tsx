@@ -1,80 +1,82 @@
 import * as React from "react";
 import { Button, Input } from "@ui";
-import { Link, Redirect } from "react-router-dom";
 import { reflect } from "@effector/reflect";
 
 import {
-  $username,
-  $password,
-  $token,
-  handleUserChange,
-  handlePasswordChange,
+  $description,
+  $word_from,
+  $word_to,
+  handleChange,
   handleSubmit,
 } from "./model";
 
-interface LoginFormProps {
-  user: string;
-  password: string;
+interface AddWordProps {
+  description: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void;
-  onUserChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onPasswordChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  token: string;
+  translation: string;
+  word: string;
 }
 
-export const Login: React.FC<LoginFormProps> = ({
-  user,
-  password,
+export const AddWord: React.FC<AddWordProps> = ({
+  description,
+  onChange,
   onSubmit,
-  onUserChange,
-  onPasswordChange,
-  token,
+  translation,
+  word,
 }) => {
-  if (token !== "") {
-    return <Redirect to="/" />;
-  }
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="p-3 text-6xl text-blue-700 font-extrabold">TDict 🇬🇧</div>
+    <div className="flex flex-col h-screen">
       <form className="flex flex-col max-w-sm" onSubmit={onSubmit}>
-        <Input
-          name="login"
-          onChange={onUserChange}
-          placeholder="login"
-          type="text"
-          value={user}
-        />
-        <Input
-          name="password"
-          onChange={onPasswordChange}
-          placeholder="password"
-          type="password"
-          value={password}
-        />
+        <label className="flex flex-col">
+          <span>Word</span>
+          <Input
+            name="word"
+            onChange={onChange}
+            placeholder="word"
+            type="text"
+            value={word}
+          />
+        </label>
+        <label className="flex flex-col">
+          <span>Description</span>
+          <Input
+            name="description"
+            onChange={onChange}
+            placeholder="description"
+            type="text"
+            value={description}
+          />
+        </label>
+        <label className="flex flex-col">
+          <span>Translation</span>
+          <Input
+            name="translation"
+            onChange={onChange}
+            placeholder="translation"
+            type="text"
+            value={translation}
+          />
+        </label>
         <div className="flex flex-col justify-center pb-6">
-          <Button name="user" text="Login" type="submit" />
+          <Button name="user" text="Save" type="submit" />
         </div>
-        <Link to="/" className="text-green-600 text-center ">
-          Go Home
-        </Link>
       </form>
     </div>
   );
 };
 
-// export const AddWordForm = reflect({
-//   view: Login,
-//   bind: {
-//     onPasswordChange: handlePasswordChange,
-//     onSubmit: handleSubmit,
-//     onUserChange: handleUserChange,
-//     password: $password,
-//     user: $username,
-//     token: $token,
-//   },
-// });
+export const AddWordForm = reflect({
+  view: AddWord,
+  bind: {
+    description: $description,
+    onChange: handleChange,
+    onSubmit: handleSubmit,
+    translation: $word_to,
+    word: $word_from,
+  },
+});
 
 handleSubmit.watch((event) => {
   event.preventDefault();
 });
-
-export const AddWordForm: React.FC = () => <div />;

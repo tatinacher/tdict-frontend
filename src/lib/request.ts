@@ -1,3 +1,5 @@
+import { AUTH_TOKEN_NAME, getCookie } from ".";
+
 export type RequestProps = {
   method: string;
   url: string;
@@ -13,10 +15,17 @@ export const request = async ({
     !process.env.NODE_ENV || process.env.NODE_ENV === "development"
       ? process.env.REACT_APP_HOST + "api" + url
       : "api" + url;
-  const headers = {
+  let headers: any = {
     "Content-Type": "application/json;charset=UTF-8",
     Accept: "application/json",
   };
+
+  const token = getCookie(AUTH_TOKEN_NAME);
+
+  if (token) {
+    headers["Authorization"] = "Token " + token;
+  }
+
   const options =
     method === "get"
       ? { headers, method }

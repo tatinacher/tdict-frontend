@@ -7,52 +7,52 @@ import {
   createStore,
   guard,
 } from "effector";
-import { getToken } from "@api";
-import {
-  AUTH_TOKEN_NAME,
-  AUTH_TOKEN_EXPIRES_DAYS,
-  setCookie,
-  getCookie,
-} from "@lib";
+import { addWord } from "@api";
 
-export const $username = createStore("");
-export const $password = createStore("");
+export const $word_from = createStore("");
+export const $description = createStore("");
+export const $word_to = createStore("");
 
-export const handleUserChange =
-  createEvent<React.ChangeEvent<HTMLInputElement>>();
-
-export const handlePasswordChange =
-  createEvent<React.ChangeEvent<HTMLInputElement>>();
+export const handleChange = createEvent<React.ChangeEvent<HTMLInputElement>>();
 
 export const handleSubmit = createEvent<React.FormEvent<HTMLFormElement>>();
 
-$username.on(
-  handleUserChange,
-  (_, event: React.ChangeEvent<HTMLInputElement>) => event.target.value
-);
-$password.on(
-  handlePasswordChange,
-  (_, event: React.ChangeEvent<HTMLInputElement>) => event.target.value
-);
-
-export const loginUses = createEffect(getToken);
-
-guard({
-  source: combine($username, $password, (username, password) => ({
-    username,
-    password,
-  })),
-  clock: handleSubmit,
-  filter: ({ username, password }: { username: string; password: string }) =>
-    username !== "" && password !== "",
-  target: loginUses,
+$word_from.on(handleChange, (_, event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.name === "word") {
+    return event.target.value;
+  }
 });
 
-const token = getCookie(AUTH_TOKEN_NAME);
-export const $token = createStore<string>(token || "");
-
-$token.on(loginUses.done, (_, { result }) => {
-  if (result.token) {
-    setCookie(AUTH_TOKEN_NAME, result.token, AUTH_TOKEN_EXPIRES_DAYS);
+$description.on(
+  handleChange,
+  (_, event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.name === "description") {
+      return event.target.value;
+    }
   }
+);
+
+$word_to.on(handleChange, (_, event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.name === "translation") {
+    return event.target.value;
+  }
+});
+
+export const addUserWord = createEffect(addWord);
+
+guard({
+  source: combine(
+    $word_from,
+    $word_to,
+    $description,
+    (word_from, word_to, description) => ({
+      word_from,
+      word_to,
+      description,
+    })
+  ),
+  clock: handleSubmit,
+  filter: ({ word_from, word_to }: { word_from: string; word_to: string }) =>
+    word_from !== "" && word_to !== "",
+  target: addUserWord,
 });

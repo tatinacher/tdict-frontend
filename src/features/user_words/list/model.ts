@@ -1,6 +1,6 @@
 import { createStore, createEffect } from "effector";
 import { DictionaryType, WordType } from "@lib/types";
-import { fetchPublicDictionary } from "@api";
+import { getDictionary } from "@api";
 
 export const getWords = createEffect<void, DictionaryType>();
 export const $list = createStore<WordType[]>([]);
@@ -13,4 +13,4 @@ $prevButton.on(getWords.done, (_, payload) => payload.result.previous);
 $nextButton.on(getWords.done, (_, payload) => payload.result.next);
 $pending.on(getWords.done, () => false);
 
-getWords.use(fetchPublicDictionary);
+getWords.use(getDictionary);

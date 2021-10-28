@@ -16,11 +16,11 @@ export const navigationPrivate = [
   },
   {
     title: "My words",
-    path: "/words_list",
+    path: "/user/words",
   },
   {
     title: "Add new word",
-    path: "/add-word",
+    path: "/user/add-word",
   },
 ];
 
